@@ -9,6 +9,18 @@ const Todo = () => {
         <header>
             <h1>TodoList</h1>
         </header>
+        <section className='form'>
+
+            <form>
+                <div>
+                    <input type="text" className='todo-input' autoComplete='off' />
+                </div>
+                <div>
+                    <button type='submit' className='todo-btn'>Add Task</button>
+                </div>
+            </form>
+
+        </section>
 
       </section>
     </>
