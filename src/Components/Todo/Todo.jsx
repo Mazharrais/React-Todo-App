@@ -1,11 +1,13 @@
 
 import './todo.css';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Todo = () => {
 
   const [inputValue, setInputValue] = useState('');
   const [task, setTask] = useState([]);
+  const [dateTime, setDateTime] = useState('')
+
 
   function handleInputValue(value) {
     setInputValue(value)
@@ -29,7 +31,29 @@ const Todo = () => {
 
     setInputValue('')
 
+    console.log("hey");
   }
+
+  
+
+  // Adding Date & Time in the App... 
+
+  useEffect(()=>{
+
+    const interval = setInterval(()=>{
+
+
+      const now = new Date();
+    const formattedDate = now.toLocaleDateString();
+    const formattedTime = now.toLocaleTimeString();
+     setDateTime(`${formattedDate} - ${formattedTime}`)
+  
+  
+    },1000);
+
+    return ()=> clearInterval(interval)
+
+  },[])
 
 
   return (
@@ -37,6 +61,7 @@ const Todo = () => {
       <section className='todo-container'>
         <header>
           <h1>TodoList</h1>
+          <h2 className='date-time'>{dateTime}</h2>
         </header>
         <section className='form'>
 
