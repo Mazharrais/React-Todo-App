@@ -64,6 +64,12 @@ const Todo = () => {
     
   }
 
+  // Clear All Function...!
+
+  function handleClearAll(){
+    setTask([])
+  }
+
 
   return (
     <>
@@ -104,7 +110,9 @@ const Todo = () => {
           </ul>
         </section>
 
-       
+       <section>
+        <button onClick={handleClearAll}>Clear All</button>
+       </section>
 
       </section>
     </>
