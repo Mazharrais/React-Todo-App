@@ -55,6 +55,15 @@ const Todo = () => {
 
   },[])
 
+  // Delete Function...!
+
+  function handleDelete(currEle){
+    console.log(task);
+    const updatedTask = task.filter((value)=> currEle != value)
+    setTask(updatedTask);
+    
+  }
+
 
   return (
     <>
@@ -86,13 +95,16 @@ const Todo = () => {
 
                   <li key={index}>
                <span>{currEle}</span>
+               <button>Check</button>
+               <button onClick={()=>handleDelete(currEle)}>Delete</button>
                 </li>
                 )
               })
             }
           </ul>
-
         </section>
+
+       
 
       </section>
     </>
