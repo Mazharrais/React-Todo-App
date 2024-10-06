@@ -64,6 +64,19 @@ const Todo = () => {
     
   }
 
+  // Checked & unChecked Function...!
+
+  function handleCheck(currEle){
+    const updatedCheck = task.map((item)=>{
+  if(item.text === currEle.text){
+    return{...item,  checked: !item.checked}
+  }else{
+    return item;
+  }
+    });
+    setTask(updatedCheck);
+  }
+
   // Clear All Function...!
 
   function handleClearAll(){
@@ -101,7 +114,8 @@ const Todo = () => {
 
                   <li key={index}>
                <span>{currEle}</span>
-               <button>Check</button>
+               <span className={currEle.checked ? "checkList" : "notCheckList" }>{currEle.text}</span>
+               <button onClick={()=>handleCheck(currEle)}>Check</button>
                <button onClick={()=>handleDelete(currEle)}>Delete</button>
                 </li>
                 )
