@@ -1,11 +1,18 @@
 
 import './todo.css';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+
+
 
 const Todo = () => {
 
   const [inputValue, setInputValue] = useState('');
-  const [task, setTask] = useState([]);
+  const [task, setTask] = useState(()=>{
+    let data = localStorage.getItem("saveData");
+  console.log(data);
+  
+    return JSON.parse(data)
+  });
   const [dateTime, setDateTime] = useState('')
 
 
@@ -82,6 +89,18 @@ const Todo = () => {
   function handleClearAll(){
     setTask([])
   }
+
+
+  // Todo App save data in Local Storage...
+
+
+
+localStorage.setItem("saveData", JSON.stringify(task));
+
+
+    
+
+
 
 
   return (
